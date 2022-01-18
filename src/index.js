@@ -3,10 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { ApiProvider } from './api/api';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ApiProvider serverAddress="http://127.0.0.1:8000">
+      <App/>
+    </ApiProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
