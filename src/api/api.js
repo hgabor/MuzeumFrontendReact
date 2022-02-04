@@ -21,6 +21,7 @@ export class ApiProvider extends Component {
             getPictures: this.getPictures,
             deletePicture: this.deletePicture,
             getUserData: this.getUserData,
+            newPicture: this.newPicture,
         }
     }
 
@@ -70,6 +71,11 @@ export class ApiProvider extends Component {
 
     deletePicture = async (id) => {
         return await this.fetchApi(`paintings/${id}`, 'DELETE');
+    };
+
+    newPicture = async (picture) => {
+        let response = await this.fetchApi('paintings', 'POST', picture);
+        return await response.json();
     };
 
     getUserData = async () => {

@@ -1,6 +1,7 @@
 import { Component } from "react";
 import { ApiContext } from "../api/api";
 import Picture from "./Picture";
+import PictureEdit from "./PictureEdit";
 
 export default class PictureList extends Component {
 
@@ -67,16 +68,19 @@ export default class PictureList extends Component {
             </>
         }
 
-        return <ul>
-            {
-                pictures.map(p => <li key={p.id}>
-                    <Picture
-                        picture={p}
-                        onRemove={() => this.handleRemovePicture(p)}
-                    />
-                </li>)
-            }
-        </ul>
+        return <div>
+            <PictureEdit />
+            <ul>
+                {
+                    pictures.map(p => <li key={p.id}>
+                        <Picture
+                            picture={p}
+                            onRemove={() => this.handleRemovePicture(p)}
+                        />
+                    </li>)
+                }
+            </ul>
+        </div>
     }
 }
 
